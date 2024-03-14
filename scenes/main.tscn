@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/Main.cs" type="Script" id=2]
+[ext_resource path="res://sprites/Background/Background1.png" type="Texture" id=3]
+[ext_resource path="res://scenes/game_over_screen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/police.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Suspect.tscn" type="PackedScene" id=6]
+[ext_resource path="res://music/Suspect.wav" type="AudioStream" id=7]
+[ext_resource path="res://music/Police.wav" type="AudioStream" id=8]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.675978 )
+colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture2D" id=2]
+gradient = SubResource( 1 )
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2( 0.5, 0.5 )
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 2 )
+SuspectScene = ExtResource( 6 )
+PoliceScene = ExtResource( 5 )
+
+[node name="HUD" parent="." instance=ExtResource( 1 )]
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="SuspectPos" type="Position2D" parent="."]
+position = Vector2( 320, 162 )
+
+[node name="PolicePos" type="Position2D" parent="."]
+position = Vector2( 220, 156 )
+
+[node name="GameOverScreen" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="ReportTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SuspectAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -5.0
+
+[node name="PoliceAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -5.0
+
+[node name="LampLight" type="Light2D" parent="."]
+position = Vector2( 460, 185 )
+texture = SubResource( 2 )
+color = Color( 0.466667, 0.54902, 0.588235, 1 )
+
+[node name="Dimmer" type="CanvasModulate" parent="."]
+color = Color( 0.686275, 0.686275, 0.686275, 1 )
+
+[connection signal="DialogOptionClickedEventHandler" from="HUD" to="." method="DialogOptionClicked"]
+[connection signal="FinalDialogDoneEventHandler" from="HUD" to="." method="OnFinalDialogDone"]
+[connection signal="PoliceDialogFinishedEventHandler" from="HUD" to="." method="OnPoliceDialogFinished"]
+[connection signal="ReportSubmittedEventHandler" from="HUD" to="." method="OnReportSubmitted"]
+[connection signal="SuspectStoppedTalkingEventHandler" from="HUD" to="." method="OnSuspectStoppedTalking"]
+[connection signal="ToggleEvidenceEventHandler" from="HUD" to="." method="OnEvidenceTogglePressed"]
+[connection signal="GameOverTimeOutEventHandler" from="GameOverScreen" to="." method="OnGameOverTimeOut"]
+[connection signal="RestartButtonPressedEventHandler" from="GameOverScreen" to="." method="OnRestartButtonPressed"]
+[connection signal="timeout" from="ReportTimer" to="." method="OnReportTimeOut"]

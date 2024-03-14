@@ -1,0 +1,43 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://sprites/Police/police3.png" type="Texture" id=1]
+[ext_resource path="res://sprites/Police/police1.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Police/police5.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Police/police6.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Police/police7.png" type="Texture" id=5]
+[ext_resource path="res://sprites/Police/police2.png" type="Texture" id=6]
+[ext_resource path="res://sprites/Police/police8.png" type="Texture" id=7]
+[ext_resource path="res://sprites/Police/police4.png" type="Texture" id=8]
+[ext_resource path="res://scripts/Police.cs" type="Script" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "police",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "policeDPG",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "policeReading",
+"speed": 3.0
+} ]
+
+[node name="Police" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 2 )
+frames = SubResource( 1 )
+animation = "police"
+
+[node name="ReadingTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="ReadingTimer" to="." method="OnReadingTimeout"]

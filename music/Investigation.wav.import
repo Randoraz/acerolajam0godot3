@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Investigation.wav-b42d0fd50a7277e49c711a5e25decad9.sample"
+
+[deps]
+
+source_file="res://music/Investigation.wav"
+dest_files=[ "res://.import/Investigation.wav-b42d0fd50a7277e49c711a5e25decad9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

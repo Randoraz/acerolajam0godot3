@@ -1,0 +1,9 @@
+F:\RaquelStuff\Game Projects\AcerolaJam3\.mono\temp\obj\Debug\WhatAreU.csproj.AssemblyReference.cache
+F:\RaquelStuff\Game Projects\AcerolaJam3\.mono\temp\obj\Debug\WhatAreU.GeneratedMSBuildEditorConfig.editorconfig
+F:\RaquelStuff\Game Projects\AcerolaJam3\.mono\temp\obj\Debug\WhatAreU.AssemblyInfoInputs.cache
+F:\RaquelStuff\Game Projects\AcerolaJam3\.mono\temp\obj\Debug\WhatAreU.AssemblyInfo.cs
+F:\RaquelStuff\Game Projects\AcerolaJam3\.mono\temp\obj\Debug\WhatAreU.csproj.CoreCompileInputs.cache
+F:\RaquelStuff\Game Projects\AcerolaJam3\.mono\temp\bin\Debug\WhatAreU.dll
+F:\RaquelStuff\Game Projects\AcerolaJam3\.mono\temp\bin\Debug\WhatAreU.pdb
+F:\RaquelStuff\Game Projects\AcerolaJam3\.mono\temp\obj\Debug\WhatAreU.dll
+F:\RaquelStuff\Game Projects\AcerolaJam3\.mono\temp\obj\Debug\WhatAreU.pdb

@@ -1,0 +1,524 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://scripts/HUD.cs" type="Script" id=1]
+[ext_resource path="res://sprites/UI/Bar1.png" type="Texture" id=2]
+[ext_resource path="res://sprites/UI/Bar.png" type="Texture" id=3]
+[ext_resource path="res://themes/DefaultTheme.tres" type="Theme" id=4]
+[ext_resource path="res://sprites/UI/dialogBox3.png" type="Texture" id=5]
+[ext_resource path="res://sprites/UI/evidenceIcon.png" type="Texture" id=6]
+[ext_resource path="res://sprites/UI/arrowPressed.png" type="Texture" id=7]
+[ext_resource path="res://sprites/UI/arrow.png" type="Texture" id=8]
+[ext_resource path="res://sprites/UI/evidence1.png" type="Texture" id=9]
+[ext_resource path="res://sprites/UI/arrowHover.png" type="Texture" id=10]
+[ext_resource path="res://fonts/m5x7.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://sprites/UI/arrowPressedA.png" type="Texture" id=12]
+[ext_resource path="res://sprites/UI/evidence2.png" type="Texture" id=13]
+[ext_resource path="res://sprites/UI/arrowHoverA.png" type="Texture" id=14]
+[ext_resource path="res://sprites/UI/arrowA.png" type="Texture" id=15]
+[ext_resource path="res://sprites/UI/evidence3.png" type="Texture" id=16]
+[ext_resource path="res://fonts/DePixel/DePixelKlein.ttf" type="DynamicFontData" id=17]
+[ext_resource path="res://themes/ReportGroup.tres" type="ButtonGroup" id=18]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 628, 96 )
+margin_left = 12.0
+margin_right = 12.0
+margin_top = 12.0
+margin_bottom = 12.0
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 40, 22 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 40, 22 )
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 40, 22 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 14 )
+region_rect = Rect2( 0, 0, 40, 22 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 40, 22 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 40, 22 )
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="DynamicFont" id=10]
+size = 9
+font_data = ExtResource( 17 )
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="SuspectDialog" type="Label" parent="."]
+margin_left = 384.0
+margin_top = 96.0
+margin_right = 632.0
+margin_bottom = 133.0
+theme = ExtResource( 4 )
+text = "Dialog goes here"
+valign = 1
+autowrap = true
+
+[node name="PoliceDialog" type="Label" parent="."]
+margin_left = 256.0
+margin_top = 96.0
+margin_right = 512.0
+margin_bottom = 133.0
+theme = ExtResource( 4 )
+custom_colors/font_color = Color( 0.564706, 0.290196, 0.25098, 1 )
+custom_styles/normal = SubResource( 1 )
+text = "Dialog goes here"
+valign = 1
+autowrap = true
+
+[node name="DialogOptions" type="ItemList" parent="."]
+margin_left = 8.0
+margin_top = 272.0
+margin_right = 632.0
+margin_bottom = 352.0
+theme = ExtResource( 4 )
+
+[node name="SuspicionBar" type="TextureProgress" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 78.0
+margin_bottom = 48.0
+rect_scale = Vector2( 2, 2 )
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="EvidencePage" type="Node" parent="."]
+
+[node name="Page1" type="TextureRect" parent="EvidencePage"]
+visible = false
+margin_left = 192.0
+margin_top = 16.0
+margin_right = 318.0
+margin_bottom = 166.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="EvidencePage/Page1"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 230.0
+margin_bottom = 34.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.14902, 0.176471, 0.184314, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Suspect Information"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="EvidencePage/Page1"]
+margin_left = 16.0
+margin_top = 26.0
+margin_right = 113.0
+margin_bottom = 215.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.14902, 0.176471, 0.184314, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Name:
+
+Date of birth:
+
+Reason for arrest:
+
+
+Family situation:
+
+
+
+Personal details:"
+
+[node name="Label3" type="Label" parent="EvidencePage/Page1"]
+margin_left = 64.0
+margin_top = 26.0
+margin_right = 168.0
+margin_bottom = 247.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.14902, 0.176471, 0.184314, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Gregor Octavius
+
+03/03/2032
+
+Arson. Burned
+down his house.
+
+Mother, father and sister are unreachable.
+
+Practices swimming
+Loves cooking"
+align = 2
+autowrap = true
+
+[node name="NextButton" type="Button" parent="EvidencePage/Page1"]
+margin_left = 128.0
+margin_top = 96.0
+margin_right = 168.0
+margin_bottom = 118.0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 11 )
+custom_styles/normal = SubResource( 6 )
+
+[node name="Page2" type="TextureRect" parent="EvidencePage"]
+visible = false
+margin_left = 192.0
+margin_top = 16.0
+margin_right = 318.0
+margin_bottom = 166.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="EvidencePage/Page2"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 230.0
+margin_bottom = 34.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.14902, 0.176471, 0.184314, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Investigation"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="EvidencePage/Page2"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 216.0
+margin_bottom = 245.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.14902, 0.176471, 0.184314, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Scientists confirmed doppelgangers live between us.
+They may commit crimes while pretending to be a person.
+
+Your job is to figure out if the suspect is a person or doppelganger.
+
+Try to get as much evidence before they become suspicious.
+If suspicion bar gets completely full, a doppelganger will attack.
+
+Survive and submit a report."
+autowrap = true
+
+[node name="NextButton" type="Button" parent="EvidencePage/Page2"]
+margin_left = 128.0
+margin_top = 96.0
+margin_right = 168.0
+margin_bottom = 118.0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 11 )
+custom_styles/normal = SubResource( 6 )
+
+[node name="PreviousButton" type="Button" parent="EvidencePage/Page2"]
+margin_left = -44.0
+margin_top = 96.0
+margin_right = -4.0
+margin_bottom = 118.0
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 11 )
+custom_styles/normal = SubResource( 9 )
+
+[node name="Page3" type="TextureRect" parent="EvidencePage"]
+visible = false
+margin_left = 192.0
+margin_top = 16.0
+margin_right = 318.0
+margin_bottom = 166.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 16 )
+
+[node name="Label" type="Label" parent="EvidencePage/Page3"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 230.0
+margin_bottom = 34.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.14902, 0.176471, 0.184314, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Helpful tips"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="EvidencePage/Page3"]
+margin_left = 16.0
+margin_top = 21.0
+margin_right = 224.0
+margin_bottom = 258.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.14902, 0.176471, 0.184314, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Doppelgangers never bother pretending to be innocent.
+
+They might give wrong information about the person they pretend to be. They mix up the person's story with their own, so conflicting information is a clear sign you are talking to a doppelganger.
+
+Showing sympathy will restore confidence.
+
+Never confront them about their identity directly."
+autowrap = true
+
+[node name="PreviousButton" type="Button" parent="EvidencePage/Page3"]
+margin_left = -44.0
+margin_top = 96.0
+margin_right = -4.0
+margin_bottom = 118.0
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 11 )
+custom_styles/normal = SubResource( 9 )
+
+[node name="Report" type="Node" parent="."]
+
+[node name="Page1" type="TextureRect" parent="Report"]
+margin_left = 192.0
+margin_top = 16.0
+margin_right = 318.0
+margin_bottom = 166.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="Report/Page1"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 230.0
+margin_bottom = 34.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.14902, 0.176471, 0.184314, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Report"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="Report/Page1"]
+margin_left = 16.0
+margin_top = 56.0
+margin_right = 113.0
+margin_bottom = 245.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.14902, 0.176471, 0.184314, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Name:
+
+Age:
+
+Reason for arrest:
+
+Family situation:
+
+Personal details:"
+align = 2
+
+[node name="Label3" type="Label" parent="Report/Page1"]
+margin_left = 16.0
+margin_top = 26.0
+margin_right = 216.0
+margin_bottom = 62.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.14902, 0.176471, 0.184314, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Hereby, I attest the suspect's story matched the following information:"
+autowrap = true
+
+[node name="NextButton" type="Button" parent="Report/Page1"]
+margin_left = 128.0
+margin_top = 96.0
+margin_right = 168.0
+margin_bottom = 118.0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 12 )
+custom_styles/normal = SubResource( 6 )
+
+[node name="NameCheckBox" type="CheckBox" parent="Report/Page1"]
+margin_left = 68.0
+margin_top = 56.0
+margin_right = 84.0
+margin_bottom = 72.0
+theme = ExtResource( 4 )
+
+[node name="DOBCheckBox" type="CheckBox" parent="Report/Page1"]
+margin_left = 68.0
+margin_top = 72.0
+margin_right = 84.0
+margin_bottom = 88.0
+theme = ExtResource( 4 )
+
+[node name="RFACheckBox" type="CheckBox" parent="Report/Page1"]
+margin_left = 68.0
+margin_top = 88.0
+margin_right = 84.0
+margin_bottom = 104.0
+theme = ExtResource( 4 )
+
+[node name="FamilyCheckBox" type="CheckBox" parent="Report/Page1"]
+margin_left = 68.0
+margin_top = 104.0
+margin_right = 84.0
+margin_bottom = 120.0
+theme = ExtResource( 4 )
+
+[node name="PDCheckBox" type="CheckBox" parent="Report/Page1"]
+margin_left = 68.0
+margin_top = 120.0
+margin_right = 84.0
+margin_bottom = 136.0
+theme = ExtResource( 4 )
+
+[node name="Page2" type="TextureRect" parent="Report"]
+margin_left = 192.0
+margin_top = 16.0
+margin_right = 318.0
+margin_bottom = 166.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 16 )
+
+[node name="Label" type="Label" parent="Report/Page2"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 230.0
+margin_bottom = 34.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.14902, 0.176471, 0.184314, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Report"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="Report/Page2"]
+margin_left = 16.0
+margin_top = 21.0
+margin_right = 224.0
+margin_bottom = 258.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.14902, 0.176471, 0.184314, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "After interrogation and investigation, I hereby declare that the testimony given by the suspect
+
+Gregor Octavius
+
+corroborates to my conclusion that the suspect is a:"
+autowrap = true
+
+[node name="Label3" type="Label" parent="Report/Page2"]
+margin_left = 20.0
+margin_top = 96.0
+margin_right = 100.0
+margin_bottom = 141.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.14902, 0.176471, 0.184314, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Human
+
+Doppelganger"
+align = 2
+autowrap = true
+
+[node name="Label4" type="Label" parent="Report/Page2"]
+margin_left = 8.0
+margin_top = 135.0
+margin_right = 224.0
+margin_bottom = 153.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.14902, 0.176471, 0.184314, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "07/03/2050                                 Alice Oliver"
+align = 2
+autowrap = true
+
+[node name="HumanCheckBox" type="CheckBox" parent="Report/Page2"]
+margin_left = 64.5
+margin_top = 96.0
+margin_right = 80.5
+margin_bottom = 112.0
+theme = ExtResource( 4 )
+group = ExtResource( 18 )
+
+[node name="DPCheckBox" type="CheckBox" parent="Report/Page2"]
+margin_left = 64.5
+margin_top = 112.0
+margin_right = 80.5
+margin_bottom = 128.0
+theme = ExtResource( 4 )
+group = ExtResource( 18 )
+
+[node name="SubmitReportButton" type="Button" parent="Report/Page2"]
+margin_left = 44.0
+margin_top = 128.0
+margin_right = 114.0
+margin_bottom = 154.0
+rect_scale = Vector2( 0.5, 0.5 )
+theme = ExtResource( 4 )
+text = "Submit"
+
+[node name="PreviousButton" type="Button" parent="Report/Page2"]
+margin_left = -44.0
+margin_top = 96.0
+margin_right = -4.0
+margin_bottom = 118.0
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 13 )
+custom_styles/normal = SubResource( 9 )
+
+[node name="LabelTimer" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="PoliceLabelTimer" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="PolicePauseTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="EvidenceButton" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 40.0
+margin_right = 78.0
+margin_bottom = 66.0
+rect_scale = Vector2( 2, 2 )
+theme = ExtResource( 4 )
+text = "Toggle"
+icon = ExtResource( 6 )
+
+[connection signal="item_selected" from="DialogOptions" to="." method="OnDialogOptionClicked"]
+[connection signal="pressed" from="EvidencePage/Page1/NextButton" to="." method="NextPage"]
+[connection signal="pressed" from="EvidencePage/Page2/NextButton" to="." method="NextPage"]
+[connection signal="pressed" from="EvidencePage/Page2/PreviousButton" to="." method="PreviousPage"]
+[connection signal="pressed" from="EvidencePage/Page3/PreviousButton" to="." method="PreviousPage"]
+[connection signal="pressed" from="Report/Page1/NextButton" to="." method="NextPage"]
+[connection signal="pressed" from="Report/Page2/HumanCheckBox" to="." method="OnButtonGroupPressed"]
+[connection signal="pressed" from="Report/Page2/DPCheckBox" to="." method="OnButtonGroupPressed"]
+[connection signal="pressed" from="Report/Page2/SubmitReportButton" to="." method="OnSubmitReportPressed"]
+[connection signal="pressed" from="Report/Page2/PreviousButton" to="." method="PreviousPage"]
+[connection signal="timeout" from="LabelTimer" to="." method="OnLabelTimeout"]
+[connection signal="timeout" from="PoliceLabelTimer" to="." method="OnPoliceLabelTimeout"]
+[connection signal="timeout" from="PolicePauseTimer" to="." method="OnPolicePauseTimeout"]
+[connection signal="pressed" from="EvidenceButton" to="." method="OnEvidenceButtonPressed"]
