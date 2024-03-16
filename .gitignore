@@ -3,3 +3,6 @@
 
 #Ignores Export folder
 Export/
+
+#Ignores fonts folder
+fonts/
